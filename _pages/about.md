@@ -1,35 +1,33 @@
 ---
-title: About Journal
-subtitle: A stunning personal blog Jekyll theme with an image-focused design.
+title: Hi! I’m Rafael
+subtitle: I'm an aerospace engineer / software engineer based in Boulder, Colorado.
 description: A stunning personal blog Jekyll theme with an image-focused design.
 featured_image: /images/demo/demo-portrait.jpg
 ---
 
 ![](/images/demo/demo-landscape.jpg)
 
-## Features
+My professional interests are in applying high performance computing and
+software engineering principles to ideas that can change the world. In
+particular, I’m interested in using and improving tools for aerodynamic
+analysis of turbomachinery. Combining a background in aerospace
+engineering, computational fluid dynamics, and software engineering,
+I’m able to do exactly that as a wind turbine modeling software engineer
+at the National Wind Technology Center of the National Renewable Energy
+Lab.
 
-Journal is packed with powerful features to showcase your work:
+In addition to reducing humanity’s carbon footprint by enabling the
+design of more efficient wind turbines, I am interested in how technology
+can be incorporated into our daily lives to complement human productivity
+rather than replace it. I enjoy writing apps for image processing, audio
+processing, and computation, and a long term objective is to bring the
+highly efficient and sustainable practices of app development to scientific
+computing. Even further, I would like to see scientific simulation in
+everyday life by, for example, generalizing something like SETI@home to
+take advantage of the hardware in our pockets to make a massively
+parallel compute cluster at social hubs like breweries or gyms.
 
-* Beautiful, minimal design
-* Fixed sidebar images that animate as you browse
-* Single column post layout
-* Responsive – works perfectly on all devices
-* Portfolio/projects post type to show your work
-* Blog with pagination
-* Sleek Ajax navigation and page transitions
-* Unique 'gallery' feature for image grids and carousels
-* Built-in contact form with Formspree integration
-* Full markdown support and code highlighting
-* Social media icons
-* Fast page rendering
-* Built with SEO best practices in mind
-* Customize everything – colors, spacing, fonts, sizes etc. – via a simple settings file
-* Works with GitHub Pages
-* Updated and supported by the developers
-
-## Get Index
-
-Journal is created and supported by [Jekyll Themes](https://jekyllthemes.io), and is available for $49.
-
-<a href="https://jekyllthemes.io/theme/journal-personal-jekyll-theme" class="button button--large">Get This Theme</a>
+In summary of me: I’m hopeful that responsible, ethical tech can solve
+all the problems that politics cannot; I’m thankful to be able to
+spend some time outside every day; and I know that the future is bright
+despite all odds.
