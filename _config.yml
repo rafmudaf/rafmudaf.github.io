@@ -1,0 +1,10 @@
+permalink: /posts/:title
+markdown: kramdown
+
+gems:
+  - jekyll-sitemap
+
+name: Rafael M Mudafort
+url: https://zachholman.com/left
+description: Aerospace | Software | Stuff
+twitter: rafmudaf
