@@ -1,7 +1,6 @@
 ---
 title: 'Notes from Intro to Git talk at NREL'
 date: 2018-03-11 00:00:00
-featured_image:
 excerpt: These are the notes from a talk I gave at NREL on an introduction to version control with git.
 ---
 
