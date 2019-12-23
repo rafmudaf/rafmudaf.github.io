@@ -2,10 +2,10 @@
 title: 'Game of Life'
 subtitle: 'A ProcessingJS implementation'
 date: 2016-09-16 00:00:00
-featured_image: '/images/demo/demo-square.jpg'
+featured_image: '/images/posts/game_of_life/infinity.png'
 ---
 
-![](/images/demo/demo-landscape.jpg)
+![](/images/posts/game_of_life/demo.gif)
 
 Way back when I started this obsession with software development,
 I built a website simulating Conway's Game of Life. In
