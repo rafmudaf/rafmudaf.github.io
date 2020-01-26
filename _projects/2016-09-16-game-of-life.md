@@ -2,23 +2,23 @@
 title: 'Game of Life'
 subtitle: 'A ProcessingJS implementation'
 date: 2016-09-16 00:00:00
-featured_image: '/images/posts/game_of_life/infinity.png'
+featured_image: '/images/projects/game_of_life/infinity.png'
 ---
 
-![](/images/posts/game_of_life/demo.gif)
+![](/images/projects/game_of_life/demo.gif)
 
 Way back when I started this obsession with software development,
 I built a website simulating Conway's Game of Life. In
 trying to focus on the delivery rather than the implementation, I chose
 ProcessingJS as a framework since it provided simple control of the UI
-and integrates natively with JavaScript for the simulation engine.
-I custom drew the grid so that it could be manipulated as needed when
-live cells pass through.
+and is written in JavaScript so integrating my own simulation engine would
+be straightforward. I created a custom grid so that it could be manipulated
+on the fly when live cells pass through.
 
 Try it for yourself at [gol.rafmudaf.com](http://gol.rafmudaf.com).
 
 There isn't much game play in this simulation. The purpose is mostly
-to demonstrate cellular automata, but in practice we get some pretty
+to demonstrate cellular automata, but we get some pretty
 pictures. To "play", create a seed by clicking on cells making them
 "alive" or "dead". The cells on the edge are held constant, and they
 do impact the cells on the interior. An interesting starting point
