@@ -1,11 +1,11 @@
 ---
 title: Hi! I’m Rafael
 subtitle: I'm an aerospace engineer / software engineer based in Boulder, Colorado.
-description: A stunning personal blog Jekyll theme with an image-focused design.
-featured_image: /images/demo/demo-portrait.jpg
+description: I'm an aerospace engineer / software engineer enjoying this wild ride through the universe.
+featured_image: /images/ge_shadow.jpg
 ---
 
-![](/images/demo/demo-landscape.jpg)
+![](/images/pages/about/streamdream.png)
 
 My professional interests are in applying high performance computing and
 software engineering principles to ideas that can change the world. In

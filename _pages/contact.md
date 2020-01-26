@@ -1,8 +1,8 @@
 ---
 title: Lets chat.
 subtitle: 
-description: A stunning personal blog Jekyll theme with an image-focused design.
-featured_image: /images/demo/demo-portrait.jpg
+description: I'm an aerospace engineer / software engineer enjoying this wild ride through the universe.
+featured_image: /images/ge_shadow.jpg
 ---
 
 {% include contact-form.html %}
