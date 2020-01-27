@@ -7,6 +7,8 @@ featured_image: '/images/projects/game_of_life/infinity.png'
 
 ![](/images/projects/game_of_life/demo.gif)
 
+View the site [here](http://www.rafmudaf.com/projects/LifeJS/index.html).
+
 Way back when I started this obsession with software development,
 I built a website simulating Conway's Game of Life. In
 trying to focus on the delivery rather than the implementation, I chose
@@ -14,8 +16,6 @@ ProcessingJS as a framework since it provided simple control of the UI
 and is written in JavaScript so integrating my own simulation engine would
 be straightforward. I created a custom grid so that it could be manipulated
 on the fly when live cells pass through.
-
-Try it for yourself at [gol.rafmudaf.com](http://gol.rafmudaf.com).
 
 There isn't much game play in this simulation. The purpose is mostly
 to demonstrate cellular automata, but we get some pretty

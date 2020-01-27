@@ -1,0 +1,3 @@
+[submodule "projects/LifeJS"]
+	path = projects/LifeJS
+	url = https://github.com/rafmudaf/LifeJS
