@@ -1,3 +1,8 @@
 [submodule "projects/LifeJS"]
 	path = projects/LifeJS
 	url = https://github.com/rafmudaf/LifeJS
+	branch = master
+[submodule "projects/MockMe"]
+	path = projects/MockMe
+	url = https://github.com/rafmudaf/MockMe
+	branch = master
