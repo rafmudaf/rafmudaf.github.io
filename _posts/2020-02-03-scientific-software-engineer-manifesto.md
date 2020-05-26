@@ -2,6 +2,7 @@
 title: 'Advancing the state of the art in scientific software'
 date: 2020-02-03 00:00:00
 excerpt: "or A Research Software Engineer's Manifesto"
+featured_image: /images/ge_shadow.jpg
 ---
 
 This is an outline of my opinions on the current issues in scientific

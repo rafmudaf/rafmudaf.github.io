@@ -62,7 +62,7 @@ color_settings:
   text_dark_color: '#2A2F36'
   text_medium_color: '#6C7A89'
   text_light_color: '#ABB7B7'
-  accent_color: '#A2DED0'
+  accent_color: '#51515F'
   border_color: '#dddddd'
   overlay_background_color: '#161B21'
   overlay_text_color: '#ffffff'
@@ -101,12 +101,12 @@ font_settings:
     letter_spacing: -0.02
     line_height: 1.2
   h2:
-    small_size: 25
-    medium_size: 35
-    large_size: 45
+    small_size: 22
+    medium_size: 25
+    large_size: 30
     weight: 400
     letter_spacing: -0.02
-    line_height: 1.2
+    line_height: 1.3
   h3:
     small_size: 22
     medium_size: 25

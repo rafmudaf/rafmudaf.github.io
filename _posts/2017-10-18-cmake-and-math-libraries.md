@@ -2,6 +2,7 @@
 title: 'Compiling with CMake and Intel MKL'
 date: 2017-10-18 00:00:00
 excerpt: How to get CMake to find a math library
+featured_image: /images/ge_shadow.jpg
 ---
 
 # CMake and MKL
