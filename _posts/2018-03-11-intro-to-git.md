@@ -201,15 +201,15 @@ are [here](https://nvie.com/posts/a-successful-git-branching-model/).
 Though a branch may have any name, Git Flow calls for a particular
 naming scheme
 
-`master` is the main branch. It is updated less frequently than others
+`main` is the primary branch. It is updated less frequently than others
 and should always remain stable. `develop` is the working branch. It is
 updated when features are thought to be complete but is not always stable.
 `feature/` are dedicated to a single particular feature. These branches
 are not typically stable, but should be merged into `develop` upon
 reaching a stable point. `hotfix/` are critical bug fixes. These
 branches should maintain a very small scope and are merged into both
-`master` and `develop` when complete. The graph below highlights the
-flow from `master` to `develop` and `feature/`.
+`main` and `develop` when complete. The graph below highlights the
+flow from `main` to `develop` and `feature/`.
 
 <img src="https://nvie.com/img/git-model@2x.png" width="400" />
 
@@ -367,12 +367,18 @@ git config is shown below.
     name = You R Name
     email = you.r.email@nrel.gov
 [alias]
-    co = checkout
-    ci = commit
-    st = status
-    last = log -1 HEAD
-    br = branch
-    bra = branch -avv
-    lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(black)%s%C(reset) %C(black)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-    rmv = remote -v
+    # Command             # Usage
+    st = status           # git st
+    co = checkout         # git co <branch name>
+    last = log -1 HEAD    # git last
+    bra = branch -avv     # git bra
+    rmv = remote -v       # git rmv
+    f = fetch --all       # git f
+    unstage = reset HEAD  # git unstage <file>
+    ga = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all   # git ga
+    gb = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(white)- %an%C(reset)%C(bold yellow)%d%C(reset)'         # git gb
+
+    # I've never actually used these
+    br = branch           # git br
+    ci = commit           # git ci
 ```
