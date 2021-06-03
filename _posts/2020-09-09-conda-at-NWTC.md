@@ -5,6 +5,8 @@ excerpt: Notes from a conda demo I gave at NREL.
 featured_image: /images/ge_shadow.jpg
 ---
 
+Update 6/2/2021: I compiled all these notes for our usage at NWTC, but there's a lot of good information on the internet. Here's [another source](https://whiteboxml.com/blog/the-definitive-guide-to-python-virtual-environments-with-conda) that is more comprehensive and worth reading or referring back to in the future.
+
 ## conda as a Development Tool
 
 and specifically how to use it in the common workflows at NWTC.
