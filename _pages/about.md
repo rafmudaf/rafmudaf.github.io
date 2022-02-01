@@ -3,6 +3,7 @@ title: Hi! I’m Rafael
 subtitle: I'm an aerospace engineer / software engineer based in New Orleans, Louisiana.
 description: I'm an aerospace engineer / software engineer enjoying this wild ride through the universe.
 featured_image: /images/ge_shadow.jpg
+permalink: /
 ---
 
 ![](/images/pages/about/streamdream.png)

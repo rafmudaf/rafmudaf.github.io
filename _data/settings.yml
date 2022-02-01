@@ -10,12 +10,10 @@ header_settings:
 
 menu_settings:
   menu_items:
-    - title: 'Latest'
-      url: '/'
+    - title: 'Posts'
+      url: '/blog'
     - title: 'Projects'
       url: '/projects/'
-    - title: 'About'
-      url: '/about'
     - title: 'Contact'
       url: '/contact'
 
