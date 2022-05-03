@@ -1,7 +1,7 @@
 ---
 title: Thank you
 subtitle: Your message was sent successfully.
-description: A stunning personal blog Jekyll theme with an image-focused design.
+description: Wind energy software engineer in New Orleans, Louisiana.
 featured_image: /images/demo/demo-portrait.jpg
 ---
 
