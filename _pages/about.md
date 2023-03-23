@@ -1,7 +1,7 @@
 ---
-title: Hi! I’m Rafael
-subtitle: Wind energy software engineer in New Orleans, Louisiana.
-description: Wind energy software engineer in New Orleans, Louisiana.
+title: Hi I’m Rafael
+subtitle: Wind energy researcher in New Orleans, Louisiana.
+description: Wind energy researcher in New Orleans, Louisiana.
 featured_image: /images/ge_shadow.jpg
 permalink: /
 ---
@@ -24,10 +24,10 @@ bring processes and ideas from the Design industry
 to scientific computing, and I think software engineers can do
 for the virtual world what architects do for the physical world.
 Further, I'm interested in the coupling
-of next generation technologies in math and computer science (i.e. AI/ML)
+of next generation technologies in math and computer science
 into applications for clean energy and social good.
 
-In summary of me: I’m hopeful that responsible, ethical tech can solve
-all the problems that politics cannot; I’m thankful to be able to
+In summary of me: I’m hopeful that responsible, ethical science can solve
+some of the problems that policy cannot; I’m thankful to be able to
 spend some time outside every day; and I know that the future is bright
 despite all odds.
