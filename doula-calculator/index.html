@@ -1,0 +1,623 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+.nn-calc *,
+.nn-calc *::before,
+.nn-calc *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.nn-calc {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 15px;
+  color: #3a3228;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.nn-calc-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 680px) {
+  .nn-calc-layout { grid-template-columns: 1fr; }
+}
+
+/* Typography */
+.nn-calc h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: #3a3228;
+  margin-bottom: 0.3rem;
+  line-height: 1.2;
+}
+.nn-calc h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #3a3228;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e8ddd5;
+}
+.nn-calc .subtitle {
+  font-size: 0.9rem;
+  color: #8a7b70;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+/* Form section card */
+.nn-calc-section {
+  background: #fff;
+  border: 1px solid #e8ddd5;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Field */
+.nn-field {
+  margin-bottom: 1rem;
+}
+.nn-field:last-child { margin-bottom: 0; }
+.nn-field label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #8a7b70;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.35rem;
+}
+.nn-field input {
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid #e0d6cd;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  font-family: 'Source Sans 3', sans-serif;
+  color: #3a3228;
+  background: #fdfaf7;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.nn-field input:focus {
+  border-color: #7a9e87;
+  box-shadow: 0 0 0 3px rgba(122,158,135,0.12);
+  background: #fff;
+}
+.nn-field input::placeholder { color: #c4b8ae; }
+.nn-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+/* Input prefix/suffix wrapper */
+.nn-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.nn-input-wrap .nn-prefix,
+.nn-input-wrap .nn-suffix {
+  position: absolute;
+  font-size: 0.9rem;
+  color: #a89a8f;
+  font-weight: 400;
+  pointer-events: none;
+}
+.nn-input-wrap .nn-prefix { left: 0.8rem; }
+.nn-input-wrap .nn-suffix { right: 0.8rem; }
+.nn-input-wrap input.has-prefix { padding-left: 1.6rem; }
+.nn-input-wrap input.has-suffix { padding-right: 1.8rem; }
+
+/* Results panel */
+.nn-results {
+  background: #fff;
+  border: 1px solid #e8ddd5;
+  border-radius: 8px;
+  padding: 1.5rem;
+  position: sticky;
+  top: 2rem;
+}
+.nn-results h3 {
+  border-bottom-color: #e8ddd5;
+}
+
+.nn-result-total {
+  background: #f0f7f3;
+  border: 1px solid #bddacc;
+  border-radius: 8px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+.nn-result-total .total-label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5d8570;
+  margin-bottom: 0.25rem;
+}
+.nn-result-total .total-amount {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: #3a6650;
+  line-height: 1;
+}
+.nn-result-total .total-sub {
+  font-size: 0.8rem;
+  color: #7a9e87;
+  margin-top: 0.3rem;
+}
+
+/* Year breakdown */
+.nn-year-block {
+  margin-bottom: 1.1rem;
+}
+.nn-year-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #c4886b;
+  margin-bottom: 0.5rem;
+}
+.nn-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.875rem;
+  padding: 0.22rem 0;
+  color: #6b5e55;
+}
+.nn-line .nn-line-label { color: #8a7b70; }
+.nn-line .nn-line-val { font-weight: 500; color: #3a3228; }
+.nn-line.nn-line-subtotal {
+  border-top: 1px solid #e8ddd5;
+  margin-top: 0.3rem;
+  padding-top: 0.4rem;
+  font-size: 0.9rem;
+}
+.nn-line.nn-line-subtotal .nn-line-label { color: #5a4e46; font-weight: 500; }
+.nn-line.nn-line-subtotal .nn-line-val { color: #3a3228; font-weight: 600; }
+
+.nn-divider {
+  border: none;
+  border-top: 1px solid #e8ddd5;
+  margin: 1rem 0;
+}
+
+/* Summary row */
+.nn-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  padding: 0.3rem 0;
+}
+.nn-summary-row .lbl { color: #8a7b70; }
+.nn-summary-row .val { font-weight: 500; color: #3a3228; }
+
+/* Callouts */
+.nn-callout {
+  font-size: 0.8rem;
+  border-radius: 6px;
+  padding: 0.65rem 0.85rem;
+  margin-top: 0.9rem;
+  line-height: 1.5;
+}
+.nn-callout-green {
+  background: #eef5f0;
+  border-left: 3px solid #7a9e87;
+  color: #3a6650;
+}
+.nn-callout-amber {
+  background: #fdf7ed;
+  border-left: 3px solid #c4a86b;
+  color: #7a5a2a;
+}
+
+/* Empty state */
+.nn-empty {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #a89a8f;
+}
+.nn-empty svg { margin-bottom: 0.75rem; opacity: 0.4; }
+.nn-empty p { font-size: 0.875rem; }
+
+/* Disclaimer */
+.nn-disclaimer {
+  font-size: 0.75rem;
+  color: #b4a59a;
+  margin-top: 1.5rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* How it works */
+.nn-how {
+  margin-top: 2rem;
+  border: 1px solid #e8ddd5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.nn-how details > summary {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #7a6b5e;
+  padding: 0.9rem 1.2rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fdfaf7;
+  user-select: none;
+}
+.nn-how details > summary::-webkit-details-marker { display: none; }
+.nn-how details > summary::after {
+  content: '+';
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #c4b8ae;
+  transition: transform 0.2s;
+}
+.nn-how details[open] > summary::after { content: '−'; }
+.nn-how-body {
+  padding: 1.2rem 1.4rem;
+  border-top: 1px solid #e8ddd5;
+  background: #fff;
+}
+.nn-how-block {
+  margin-bottom: 1.4rem;
+}
+.nn-how-block:last-child { margin-bottom: 0; }
+.nn-how-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #8a7b70;
+  margin-bottom: 0.5rem;
+}
+.nn-how-note {
+  font-size: 0.83rem;
+  color: #8a7b70;
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+.nn-eq {
+  font-family: 'Georgia', serif;
+  font-size: 0.875rem;
+  color: #3a3228;
+  background: #faf7f2;
+  border-left: 3px solid #e8ddd5;
+  padding: 0.35rem 0.75rem;
+  margin: 0.3rem 0;
+  border-radius: 0 4px 4px 0;
+  line-height: 1.5;
+}
+.nn-how-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+.nn-how-list li {
+  font-size: 0.83rem;
+  color: #7a6b5e;
+  padding: 0.2rem 0;
+  line-height: 1.5;
+}
+</style>
+
+<div class="nn-calc">
+  <h2>Estimate Your Insurance Coverage</h2>
+  <p class="subtitle">Enter your doula package and insurance details to see your estimated out-of-pocket costs.</p>
+
+  <div class="nn-calc-layout">
+
+    <!-- LEFT: Form -->
+    <div class="nn-form-col">
+
+      <div class="nn-calc-section">
+        <h3>Doula Services</h3>
+        <div class="nn-field">
+          <label>Concierge Medical Service Fee</label>
+          <div class="nn-input-wrap">
+            <span class="nn-prefix">$</span>
+            <input class="has-prefix" type="number" id="nn-flat-fee" placeholder="0" min="0" step="any" oninput="nnCalc()">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="nn-calc-section">
+        <h3>Your Visits</h3>
+        <div class="nn-field-row">
+          <div class="nn-field">
+            <label>Pre-Birth Visits</label>
+            <input type="number" id="nn-pre-visits" placeholder="0" min="0" step="1" oninput="nnCalc()">
+          </div>
+          <div class="nn-field">
+            <label>Post-Birth Visits</label>
+            <input type="number" id="nn-post-visits" placeholder="0" min="0" step="1" oninput="nnCalc()">
+          </div>
+        </div>
+        <div class="nn-field">
+          <label>Baby's Due Date</label>
+          <input type="date" id="nn-due-date" oninput="nnCalc()">
+        </div>
+      </div>
+
+      <div class="nn-calc-section">
+        <h3>Your Insurance</h3>
+        <div class="nn-field-row">
+          <div class="nn-field">
+            <label>Annual Deductible</label>
+            <div class="nn-input-wrap">
+              <span class="nn-prefix">$</span>
+              <input class="has-prefix" type="number" id="nn-deductible" placeholder="0" min="0" step="any" oninput="nnCalc()">
+            </div>
+          </div>
+          <div class="nn-field">
+            <label>Deductible Paid So Far</label>
+            <div class="nn-input-wrap">
+              <span class="nn-prefix">$</span>
+              <input class="has-prefix" type="number" id="nn-deductible-paid" placeholder="0" min="0" step="any" oninput="nnCalc()">
+            </div>
+          </div>
+        </div>
+        <div class="nn-field-row">
+          <div class="nn-field">
+            <label>Out-of-Pocket Max</label>
+            <div class="nn-input-wrap">
+              <span class="nn-prefix">$</span>
+              <input class="has-prefix" type="number" id="nn-oop-max" placeholder="0" min="0" step="any" oninput="nnCalc()">
+            </div>
+          </div>
+          <div class="nn-field">
+            <label>Copay Per Visit</label>
+            <div class="nn-input-wrap">
+              <span class="nn-prefix">$</span>
+              <input class="has-prefix" type="number" id="nn-copay" placeholder="0" min="0" step="any" oninput="nnCalc()">
+            </div>
+          </div>
+        </div>
+        <div class="nn-field">
+          <label>Your Coinsurance (your share after deductible)</label>
+          <div class="nn-input-wrap">
+            <input class="has-suffix" type="number" id="nn-coinsurance" placeholder="20" min="0" max="100" step="any" oninput="nnCalc()">
+            <span class="nn-suffix">%</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Results -->
+    <div id="nn-results-panel" class="nn-results">
+      <h3>Your Estimate</h3>
+      <div id="nn-results-body">
+        <div class="nn-empty">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3"/>
+            <rect x="9" y="3" width="6" height="5" rx="1"/>
+            <path d="M9 14h6M9 17h4"/>
+          </svg>
+          <p>Fill in the form to see your estimated costs.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="nn-how">
+    <details>
+      <summary>How this is calculated</summary>
+      <div class="nn-how-body">
+
+        <div class="nn-how-block">
+          <div class="nn-how-title">Total service cost</div>
+          <div class="nn-eq">Total cost = Concierge fee + (Total visits × Copay per visit)</div>
+          <div class="nn-how-note">Total visits = Pre-birth visits + Post-birth visits</div>
+        </div>
+
+        <div class="nn-how-block">
+          <div class="nn-how-title">Calendar year split</div>
+          <div class="nn-how-note">The concierge fee and all pre-birth visits fall in the year of your due date. Post-birth visits are assumed every 2 weeks starting on the due date. Any that extend past December 31st are counted in the following year, when your deductible resets.</div>
+          <div class="nn-eq">Post-birth visits in Year 1 = min(Post-birth visits, ⌊Weeks remaining in year ÷ 2⌋)</div>
+          <div class="nn-eq">Post-birth visits in Year 2 = Post-birth visits − Year 1 post-birth visits</div>
+        </div>
+
+        <div class="nn-how-block">
+          <div class="nn-how-title">Your out-of-pocket cost (per year)</div>
+          <div class="nn-how-note">Runs separately for each calendar year. In Year 2, the deductible resets to zero paid.</div>
+          <div class="nn-eq">Copays = Visits this year × Copay per visit</div>
+          <div class="nn-eq">Insurable amount = Total billed this year − Copays</div>
+          <div class="nn-eq">Applied to deductible = min(Insurable amount, Remaining deductible)</div>
+          <div class="nn-eq">Subject to coinsurance = Insurable amount − Applied to deductible</div>
+          <div class="nn-eq">Coinsurance owed = Subject to coinsurance × Your coinsurance %</div>
+          <div class="nn-eq">Raw patient cost = Copays + Applied to deductible + Coinsurance owed</div>
+          <div class="nn-eq">You pay = min(Raw patient cost, Out-of-pocket maximum)</div>
+        </div>
+
+        <div class="nn-how-block">
+          <div class="nn-how-title">Insurance pays</div>
+          <div class="nn-eq">Insurance pays = Total cost − Your total out-of-pocket</div>
+        </div>
+
+        <div class="nn-how-block">
+          <div class="nn-how-title">Assumptions</div>
+          <ul class="nn-how-list">
+            <li>Copays count toward your out-of-pocket maximum but not your deductible.</li>
+            <li>Your deductible and out-of-pocket maximum reset on January 1st each year.</li>
+            <li>The concierge medical service fee is fully insurable and flows through your deductible and coinsurance.</li>
+            <li>Post-birth visits are spaced every 2 weeks.</li>
+          </ul>
+        </div>
+
+      </div>
+    </details>
+  </div>
+
+  <p class="nn-disclaimer">This calculator provides estimates only. Coverage varies by plan. Please verify your specific benefits with your insurance provider before making financial decisions.</p>
+</div>
+
+<script>
+function fmt(n) {
+  return '$' + Math.round(n).toLocaleString('en-US');
+}
+
+function v(id) {
+  return parseFloat(document.getElementById(id).value) || 0;
+}
+function vi(id) {
+  return parseInt(document.getElementById(id).value) || 0;
+}
+
+function calcYearOOP(grossCost, visits, copay, deductibleRemaining, oopMax, coinsurancePct) {
+  var copays = visits * copay;
+  var insurable = Math.max(0, grossCost - copays);
+  var deductibleApplied = Math.min(insurable, deductibleRemaining);
+  var afterDeductible = insurable - deductibleApplied;
+  var coinsuranceRaw = afterDeductible * coinsurancePct;
+
+  var rawPatient = copays + deductibleApplied + coinsuranceRaw;
+  var patientCost = (oopMax > 0) ? Math.min(rawPatient, oopMax) : rawPatient;
+
+  // Actual coinsurance paid (after OOP cap)
+  var coinsuranceActual = Math.max(0, patientCost - copays - deductibleApplied);
+
+  return {
+    grossCost: grossCost,
+    visits: visits,
+    copays: copays,
+    deductibleApplied: deductibleApplied,
+    coinsurance: coinsuranceActual,
+    rawPatient: rawPatient,
+    patientCost: patientCost,
+    insurancePays: Math.max(0, grossCost - patientCost),
+    oopMaxHit: (oopMax > 0) && (rawPatient >= oopMax)
+  };
+}
+
+function renderYear(label, yr) {
+  var html = '<div class="nn-year-block">';
+  html += '<div class="nn-year-title">' + label + '</div>';
+  html += '<div class="nn-line"><span class="nn-line-label">Total billed</span><span class="nn-line-val">' + fmt(yr.grossCost) + '</span></div>';
+  if (yr.copays > 0) {
+    html += '<div class="nn-line"><span class="nn-line-label">Copays (' + yr.visits + ' visits)</span><span class="nn-line-val">' + fmt(yr.copays) + '</span></div>';
+  }
+  if (yr.deductibleApplied > 0) {
+    html += '<div class="nn-line"><span class="nn-line-label">Applied to deductible</span><span class="nn-line-val">' + fmt(yr.deductibleApplied) + '</span></div>';
+  }
+  if (yr.coinsurance > 0) {
+    html += '<div class="nn-line"><span class="nn-line-label">Coinsurance (your share)</span><span class="nn-line-val">' + fmt(yr.coinsurance) + '</span></div>';
+  }
+  html += '<div class="nn-line nn-line-subtotal"><span class="nn-line-label">You pay this year</span><span class="nn-line-val">' + fmt(yr.patientCost) + '</span></div>';
+  html += '</div>';
+  return html;
+}
+
+function nnCalc() {
+  var flatFee = v('nn-flat-fee');
+  var preBirth = vi('nn-pre-visits');
+  var postBirth = vi('nn-post-visits');
+  var dueDateStr = document.getElementById('nn-due-date').value;
+  var annualDeductible = v('nn-deductible');
+  var deductiblePaid = v('nn-deductible-paid');
+  var oopMax = v('nn-oop-max');
+  var copay = v('nn-copay');
+  var coinsurancePct = v('nn-coinsurance') / 100;
+
+  var body = document.getElementById('nn-results-body');
+
+  // Require at least a due date and something to calculate
+  if (!dueDateStr && flatFee === 0 && preBirth === 0 && postBirth === 0) {
+    body.innerHTML = '<div class="nn-empty"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3"/><rect x="9" y="3" width="6" height="5" rx="1"/><path d="M9 14h6M9 17h4"/></svg><p>Fill in the form to see your estimated costs.</p></div>';
+    return;
+  }
+
+  // Determine year split
+  var postVisitsY1 = postBirth;
+  var postVisitsY2 = 0;
+  var dueYear = new Date().getFullYear();
+  var yearSplit = false;
+
+  if (dueDateStr) {
+    var dueDate = new Date(dueDateStr + 'T12:00:00');
+    dueYear = dueDate.getFullYear();
+    var dec31 = new Date(dueYear, 11, 31);
+    var daysRemaining = (dec31 - dueDate) / (1000 * 60 * 60 * 24);
+    var weeksRemaining = daysRemaining / 7;
+    postVisitsY1 = Math.min(postBirth, Math.floor(weeksRemaining / 2));
+    postVisitsY2 = postBirth - postVisitsY1;
+    yearSplit = postVisitsY2 > 0;
+  }
+
+  // Costs — concierge fee billed in Y1; copays cover per-visit costs in both years
+  var y1Visits = preBirth + postVisitsY1;
+  var y1Gross = flatFee + y1Visits * copay;
+  var y2Visits = postVisitsY2;
+  var y2Gross = y2Visits * copay;
+  var totalCost = y1Gross + y2Gross;
+
+  // Year 1 OOP
+  var deductibleRemainingY1 = Math.max(0, annualDeductible - deductiblePaid);
+  var y1 = calcYearOOP(y1Gross, y1Visits, copay, deductibleRemainingY1, oopMax, coinsurancePct);
+
+  // Year 2 OOP (deductible fully resets)
+  var y2 = null;
+  if (y2Visits > 0) {
+    y2 = calcYearOOP(y2Gross, y2Visits, copay, annualDeductible, oopMax, coinsurancePct);
+  }
+
+  var totalPatient = y1.patientCost + (y2 ? y2.patientCost : 0);
+  var totalInsurance = Math.max(0, totalCost - totalPatient);
+
+  // Render
+  var html = '';
+
+  // Big total
+  html += '<div class="nn-result-total">';
+  html += '<div class="total-label">Your estimated out-of-pocket</div>';
+  html += '<div class="total-amount">' + fmt(totalPatient) + '</div>';
+  html += '<div class="total-sub">of ' + fmt(totalCost) + ' total service cost</div>';
+  html += '</div>';
+
+  // Year breakdowns
+  if (y1Gross > 0) {
+    html += renderYear('Year ' + dueYear + (yearSplit ? ' (pre-birth + ' + postVisitsY1 + ' post-birth visit' + (postVisitsY1 !== 1 ? 's' : '') + ')' : ''), y1);
+  }
+
+  if (y2) {
+    html += '<hr class="nn-divider">';
+    html += renderYear('Year ' + (dueYear + 1) + ' (' + postVisitsY2 + ' post-birth visit' + (postVisitsY2 !== 1 ? 's' : '') + ' — deductible resets)', y2);
+  }
+
+  html += '<hr class="nn-divider">';
+  html += '<div class="nn-summary-row"><span class="lbl">Total service cost</span><span class="val">' + fmt(totalCost) + '</span></div>';
+  html += '<div class="nn-summary-row"><span class="lbl">Estimated insurance pays</span><span class="val">' + fmt(totalInsurance) + '</span></div>';
+  html += '<div class="nn-summary-row"><span class="lbl">Your total out-of-pocket</span><span class="val" style="color:#3a6650;font-weight:600;">' + fmt(totalPatient) + '</span></div>';
+
+  // Callouts
+  if (y1.oopMaxHit || (y2 && y2.oopMaxHit)) {
+    html += '<div class="nn-callout nn-callout-green">Your out-of-pocket maximum is reached — insurance covers 100% of any additional costs beyond that point.</div>';
+  }
+  if (yearSplit) {
+    html += '<div class="nn-callout nn-callout-amber">Your due date is in Q4 of ' + dueYear + ', so some post-birth visits will fall in ' + (dueYear + 1) + '. Your deductible resets on January 1st, which affects your Year 2 estimate. Post-birth visits are assumed every 2 weeks.</div>';
+  }
+
+  body.innerHTML = html;
+}
+</script>
