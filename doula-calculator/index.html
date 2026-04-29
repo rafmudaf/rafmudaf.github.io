@@ -273,7 +273,7 @@
   color: #c4b8ae;
   transition: transform 0.2s;
 }
-.nn-how details[open] > summary::after { content: '−'; }
+.nn-how details[open] > summary::after { content: '-'; }
 .nn-how-body {
   padding: 1.2rem 1.4rem;
   border-top: 1px solid #e8ddd5;
@@ -428,32 +428,32 @@
 
         <div class="nn-how-block">
           <div class="nn-how-title">Total service cost</div>
-          <div class="nn-eq">Total cost = Concierge fee + (Total visits × Copay per visit)</div>
+          <div class="nn-eq">Total cost = Concierge fee + (Total visits x Copay per visit)</div>
           <div class="nn-how-note">Total visits = Pre-birth visits + Post-birth visits</div>
         </div>
 
         <div class="nn-how-block">
           <div class="nn-how-title">Calendar year split</div>
           <div class="nn-how-note">The concierge fee and all pre-birth visits fall in the year of your due date. Post-birth visits are assumed every 2 weeks starting on the due date. Any that extend past December 31st are counted in the following year, when your deductible resets.</div>
-          <div class="nn-eq">Post-birth visits in Year 1 = min(Post-birth visits, ⌊Weeks remaining in year ÷ 2⌋)</div>
-          <div class="nn-eq">Post-birth visits in Year 2 = Post-birth visits − Year 1 post-birth visits</div>
+          <div class="nn-eq">Post-birth visits in Year 1 = min(Post-birth visits, Weeks remaining in year / 2)</div>
+          <div class="nn-eq">Post-birth visits in Year 2 = Post-birth visits - Year 1 post-birth visits</div>
         </div>
 
         <div class="nn-how-block">
           <div class="nn-how-title">Your out-of-pocket cost (per year)</div>
           <div class="nn-how-note">Runs separately for each calendar year. In Year 2, the deductible resets to zero paid.</div>
-          <div class="nn-eq">Copays = Visits this year × Copay per visit</div>
-          <div class="nn-eq">Insurable amount = Total billed this year − Copays</div>
+          <div class="nn-eq">Copays = Visits this year x Copay per visit</div>
+          <div class="nn-eq">Insurable amount = Total billed this year - Copays</div>
           <div class="nn-eq">Applied to deductible = min(Insurable amount, Remaining deductible)</div>
-          <div class="nn-eq">Subject to coinsurance = Insurable amount − Applied to deductible</div>
-          <div class="nn-eq">Coinsurance owed = Subject to coinsurance × Your coinsurance %</div>
+          <div class="nn-eq">Subject to coinsurance = Insurable amount - Applied to deductible</div>
+          <div class="nn-eq">Coinsurance owed = Subject to coinsurance x Your coinsurance %</div>
           <div class="nn-eq">Raw patient cost = Copays + Applied to deductible + Coinsurance owed</div>
           <div class="nn-eq">You pay = min(Raw patient cost, Out-of-pocket maximum)</div>
         </div>
 
         <div class="nn-how-block">
           <div class="nn-how-title">Insurance pays</div>
-          <div class="nn-eq">Insurance pays = Total cost − Your total out-of-pocket</div>
+          <div class="nn-eq">Insurance pays = Total cost - Your total out-of-pocket</div>
         </div>
 
         <div class="nn-how-block">
@@ -530,7 +530,7 @@ function nnCalc() {
   var dueYear = split.dueYear;
   var yearSplit = postVisitsY2 > 0;
 
-  // Costs — concierge fee billed in Y1; copays cover per-visit costs in both years
+  // Costs - concierge fee billed in Y1; copays cover per-visit costs in both years
   var y1Visits = preBirth + postVisitsY1;
   var y1Gross = flatFee + y1Visits * copay;
   var y2Visits = postVisitsY2;
@@ -567,7 +567,7 @@ function nnCalc() {
 
   if (y2) {
     html += '<hr class="nn-divider">';
-    html += renderYear('Year ' + (dueYear + 1) + ' (' + postVisitsY2 + ' post-birth visit' + (postVisitsY2 !== 1 ? 's' : '') + ' — deductible resets)', y2);
+    html += renderYear('Year ' + (dueYear + 1) + ' (' + postVisitsY2 + ' post-birth visit' + (postVisitsY2 !== 1 ? 's' : '') + ' - deductible resets)', y2);
   }
 
   html += '<hr class="nn-divider">';
@@ -577,7 +577,7 @@ function nnCalc() {
 
   // Callouts
   if (y1.oopMaxHit || (y2 && y2.oopMaxHit)) {
-    html += '<div class="nn-callout nn-callout-green">Your out-of-pocket maximum is reached — insurance covers 100% of any additional costs beyond that point.</div>';
+    html += '<div class="nn-callout nn-callout-green">Your out-of-pocket maximum is reached - insurance covers 100% of any additional costs beyond that point.</div>';
   }
   if (yearSplit) {
     html += '<div class="nn-callout nn-callout-amber">Your due date is in Q4 of ' + dueYear + ', so some post-birth visits will fall in ' + (dueYear + 1) + '. Your deductible resets on January 1st, which affects your Year 2 estimate. Post-birth visits are assumed every 2 weeks.</div>';
